@@ -2,7 +2,7 @@
 
 /**
 
- * f_add - adds the top two elements of the stack.
+ * f_swap - adds the top two elements of the stack.
 
  * @head: stack head
 
@@ -12,7 +12,7 @@
 
 */
 
-void f_add(stack_t **head, unsigned int counter)
+void f_swap(stack_t **head, unsigned int counter)
 
 {
 
@@ -38,7 +38,7 @@ void f_add(stack_t **head, unsigned int counter)
 
 	{
 
-		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
 
 		fclose(bus.file);
 
@@ -52,12 +52,10 @@ void f_add(stack_t **head, unsigned int counter)
 
 	h = *head;
 
-	aux = h->n + h->next->n;
+	aux = h->n;
+
+	h->n = h->next->n;
 
 	h->next->n = aux;
-
-	*head = h->next;
-
-	free(h);
 
 }

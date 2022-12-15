@@ -2,7 +2,9 @@
 
 /**
 
- * f_div - divides the top two elements of the stack.
+ * f_mod - computes the rest of the division of the second
+
+ * top element of the stack by the top element of the stack
 
  * @head: stack head
 
@@ -12,7 +14,7 @@
 
 */
 
-void f_div(stack_t **head, unsigned int counter)
+void f_mod(stack_t **head, unsigned int counter)
 
 {
 
@@ -38,7 +40,7 @@ void f_div(stack_t **head, unsigned int counter)
 
 	{
 
-		fprintf(stderr, "L%d: can't div, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
 
 		fclose(bus.file);
 
@@ -68,7 +70,7 @@ void f_div(stack_t **head, unsigned int counter)
 
 	}
 
-	aux = h->next->n / h->n;
+	aux = h->next->n % h->n;
 
 	h->next->n = aux;
 
